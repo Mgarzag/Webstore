@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './styles.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Login extends Component {
     render () {
         return (
             <>
-            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            <div className="" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                 aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
