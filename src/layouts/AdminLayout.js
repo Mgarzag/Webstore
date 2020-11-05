@@ -5,6 +5,7 @@ import { signOutUserStart } from './../redux/User/user.actions';
 
 import Header from './../components/Header';
 import VerticalNav from './../components/VerticalNav';
+import Home from '../pages/Home';
 import Footer from './../components/Footer';
 
 const AdminLayout = props => {
