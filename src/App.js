@@ -1,56 +1,43 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-//hoc
-import WithAdminAuth from './hoc/withAdminAuth';
+import './default.scss';
+
 
 //layouts
 import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
 import AdminLayout from './layouts/AdminLayout';
 
+
 //pages
 import Homepage from './pages/Homepage';
 import Search from './pages/Search';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
+import SignIn from './pages/SignIn';
 import Admin from './pages/Admin';
 import './default.scss';
 
-function App() {
-  return (
-    <div className="App">
-        <Switch>
-          <Route exact path="/" render={() => (
-            <HomepageLayout>
-              <Homepage />
-            </HomepageLayout>
-          )} />
-          <Route exact path="/search" render={() => (
-          <MainLayout>
-            <Search />
-          </MainLayout>
-        )} />
-          <Route path="/registration" render={() => (
-            <MainLayout>
-              <Registration />
-            </MainLayout>
-          )} />
-          <Route path="/login" render={() => (
-            <MainLayout>
-              <Login />
-            </MainLayout>
-          )} />
-           <Route path="/admin" render={() => (
-          <WithAdminAuth>
-            <AdminLayout>
-              <Admin />
-            </AdminLayout>
-          </WithAdminAuth>
-        )} />
-        </Switch>
-    </div>
-  );
-}
 
-export default App;
+function App() {
+    return (
+      <div className="App">
+          <Router>
+            <Switch>
+              <HomepageLayout>
+                <Route exact path ="/login" render={props => <Login {...props} />} />
+                <Route exact path ="/registration" render={props => <Registration {...props} />} />
+                <Route exact path ="/signin" render={props => <SignIn {...props} />} />
+                <Route exact path ="/admin" render={props => <Admin {...props} />} />
+                <Route exact path ="/search" render={props => <Search {...props} />} />
+                <Route exact path ="/homepage" render={props => <Homepage {...props} />} />
+              </HomepageLayout>
+            </Switch>
+          </Router>
+      </div>
+    );
+  }
+
+
+ export default App;
