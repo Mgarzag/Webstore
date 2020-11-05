@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import { Switch, Route } from 'react-router-dom';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import './default.scss';
 
 
@@ -15,6 +15,7 @@ import Homepage from './pages/Homepage';
 import Search from './pages/Search';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
+import Signin from './pages/Signin';
 import Admin from './pages/Admin';
 import './default.scss';
 
@@ -22,35 +23,18 @@ import './default.scss';
 function App() {
     return (
       <div className="App">
-          <Switch>
-            <Route exact path="/" render={() => (
+          <Router>
+            <Switch>
               <HomepageLayout>
-                <Homepage />
+                <Route exact path ="/login" render={props => <Login {...props} />} />
+                <Route exact path ="/registration" render={props => <Registration {...props} />} />
+                <Route exact path ="/signin" render={props => <Signin {...props} />} />
+                <Route exact path ="/admin" render={props => <Admin {...props} />} />
+                <Route exact path ="/search" render={props => <Search {...props} />} />
+                <Route exact path ="/homepage" render={props => <Homepage {...props} />} />
               </HomepageLayout>
-            )} />
-            <Route exact path="/search" render={() => (
-            <MainLayout>
-              <Search />
-            </MainLayout>
-          )} />
-            <Route path="/registration" render={() => (
-              <MainLayout>
-                <Registration />
-              </MainLayout>
-            )} />
-            <Route path="/login" render={() => (
-              <MainLayout>
-                <Login />
-              </MainLayout>
-            )} />
-             <Route path="/admin" render={() => (
-            //<WithAdminAuth>
-              <AdminLayout>
-                <Admin />
-              </AdminLayout>
-            //</WithAdminAuth>
-          )} />
-          </Switch>
+            </Switch>
+          </Router>
       </div>
     );
   }

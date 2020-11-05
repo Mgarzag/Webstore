@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 
-export default class SignIn extends Component {
+class Signin extends Component {
   constructor(props) {
     super(props);
 
@@ -75,4 +75,4 @@ export default class SignIn extends Component {
   }
 }
 
-export default SignIn
+export default Signin
